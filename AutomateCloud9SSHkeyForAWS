@@ -35,12 +35,9 @@ d of ssh key line (beginning and the end of every ssh key is the same)
             email_subject = email.message_from_string(response_part[1])['subject
 ']
             email_reg_expression = re.findall(r'[\w.-]+@[\w.-]+', email_from)
-            print(email_reg_expression[0][0:8]) #make sure to include [0] to get
- only email because findall is a tuple doc: https://developers.google.com/edu/py
-thon/regular-expressions (findll and groups)
+            print(email_reg_expression[0][0:8]) #make sure to include [0] to get only email because findall is a tuple doc: https://developers.google.com/edu/python/regular-expressions (findll and groups)
             if email_subject == "ECE_1111":
-                path = '/home/{0}/.ssh/authorized_keys'.format(email_reg_expression[0][0:8]) # [0] to get only the email [0:8] get only the first 8 characters (
-because the first 8 characters make up the username of the user in the system, a Linux VM instance that I ran on)
+                path = '/home/{0}/.ssh/authorized_keys'.format(email_reg_expression[0][0:8]) # [0] to get only the email [0:8] get only the first 8 characters (because the first 8 characters make up the username of the user in the system, a Linux VM instance that I ran on)
                 file = open(path, 'a+') #a+ is to add to the file without deleting any old stuff, can use w as well but that will delete all the all stuff
                 file.write(str(msg)) #make sure to convert msg into string before write to file (to avoid errors)
                 print(str(msg))
