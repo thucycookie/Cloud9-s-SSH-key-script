@@ -1,6 +1,6 @@
 #! /usr/bin/python
 # be careful when using this script because it will read all of your email (whic
-h means email that do not have the subject ECE_1111 will be READ AS WELL)
+#h means email that do not have the subject ECE_1111 will be READ AS WELL)
 import re, smtplib, email, imaplib
 
 email_addr = "" #enter the email address as a string
